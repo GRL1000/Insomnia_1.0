@@ -53,22 +53,32 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.currentTime = startTime;
+    let handleTimeUpdate;
+  
+    const setupVideo = () => {
+      if (videoRef.current) {
+        videoRef.current.currentTime = startTime;
+  
+        handleTimeUpdate = () => {
+          if (videoRef.current && videoRef.current.currentTime >= endTime) {
+            videoRef.current.currentTime = startTime;
+          }
+        };
+  
+        videoRef.current.addEventListener("timeupdate", handleTimeUpdate);
+      }
+    };
 
-      const handleTimeUpdate = () => {
-        if (videoRef.current.currentTime >= endTime) {
-          videoRef.current.currentTime = startTime;
-        }
-      };
-
-      videoRef.current.addEventListener("timeupdate", handleTimeUpdate);
-
-      return () => {
+    const cleanupVideo = () => {
+      if (videoRef.current && handleTimeUpdate) {
         videoRef.current.removeEventListener("timeupdate", handleTimeUpdate);
-      };
-    }
-  }, []);
+      }
+    };
+  
+    setupVideo();
+  
+    return cleanupVideo;
+  }, [startTime, endTime]);
 
   return (
     <>
