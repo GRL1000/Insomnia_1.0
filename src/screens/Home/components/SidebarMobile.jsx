@@ -21,13 +21,13 @@ const SidebarMobile = ({ onClose, onHomeClick, playlists, onShowCredits }) => {
         <S.Span>Mis listas</S.Span>
       </S.MobileMenuItem>
       {showPlaylists && (
-        <S.PlaylistContainer>
+        <S.PlaylistContainerM>
           {playlists.map((playlist) => (
-            <S.PlaylistItem key={playlist.id}>
+            <S.PlaylistItemM key={playlist.id}>
               {playlist.name}
-            </S.PlaylistItem>
+            </S.PlaylistItemM>
           ))}
-        </S.PlaylistContainer>
+        </S.PlaylistContainerM>
       )}
       <S.MobileMenuItem onClick={() => { onShowCredits(); onClose(); }}>
         <S.IconMB src={Credits} alt="Credits" />

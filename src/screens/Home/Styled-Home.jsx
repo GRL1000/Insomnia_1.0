@@ -376,6 +376,39 @@ export const PlaylistContainer = styled.div`
   }
 `;
 
+export const PlaylistContainerM = styled.div`
+  padding-left: 20px;
+  padding-right: 150px;
+  
+  margin-top: 100px;
+  margin-left: 200px;
+  height: 200px;
+  overflow-y: auto;
+  /* Scroll customization */
+  &::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #b2b6b8d3;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 767px) {
+    scrollbar-width: thin;
+  }
+`;
+
 
 export const PlaylistItem = styled.div`
   padding: 5px 0;
@@ -386,6 +419,13 @@ export const PlaylistItem = styled.div`
   }
 `;
 
+export const PlaylistItemM = styled.div`
+  padding: 5px 0;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
 
 /* Sección de sugerencias */
 

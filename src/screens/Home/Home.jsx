@@ -7,7 +7,7 @@ import Suggestions from './components/Suggestions';
 import PlaybackBar from './components/PlaybackBar';
 import LyricLab from '../LyricLab/LyricLab';
 import Credits from '../Credits/Credits';
-import { GetToken } from '../../utils/InMemoryToken';
+import { GetToken, fetchUserPlaylists } from '../../utils/InMemoryToken';
 import SidebarMobile from './components/SidebarMobile';
 
 export function Home() {
