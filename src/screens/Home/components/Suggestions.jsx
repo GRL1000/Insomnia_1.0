@@ -1,5 +1,4 @@
 import * as S from "../Styled-Home";
-import SearchBar from "./SearchBar";
 import ImagineDragons from "../../../assets/images/wallpaper.png";
 import Muse from "../../../assets/images/muse.jpg";
 import ArcticMonkeys from "../../../assets/images/arctic-monkeys.jpg"
@@ -44,9 +43,8 @@ function Suggestions({ sidebarExpanded, setBgColor, setPlayBackColor }) {
   const currentImage = images[currentImageIndex];
 
   return (
-    <S.SuggestionsWrapper
+    <S.SuggestionsWrapper className={sidebarExpanded ? 'expanded': ''}
       style={{
-        width: sidebarExpanded ? 'calc(95.5vw - 189px)' : '95.5vw',
         backgroundImage: `url(${currentImage.src})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import Button from "../../inputs/Button";
 
 export const Card = styled.div`
@@ -194,7 +194,94 @@ export const SidebarWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
+
+const slideIn = keyframes`
+  from {
+    transform: translateX(-20px) scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+`;
+
+export const SidebarToggle = styled.div`
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  z-index: 2000;
+  display: none;
+  animation: ${slideIn} 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
+
+export const SidebarMobileWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 190px;
+  height: 100vh;
+  z-index: 1000;
+  background-color: black;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+
+  &.show {
+    transform: translateX(0);
+  }
+`;
+
+export const MobileMenuItem = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  margin-top: 90px;
+  margin-left: 190px;
+  margin-bottom: -70px;
+  font-size: 18px;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: border 0.1s, transform 0.3s, color 0.3s, ease-in-out;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    border: 2px solid white;
+    border-radius: 10px;
+    margin-left: 200px;
+    margin-right: -160px;
+    color: cyan;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`;
+
+export const IconMB = styled.img`
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+`;
+
+export const Span = styled.span`
+  white-space: nowrap;
+  vertical-align: middle;
+`;
+
 
 export const ProfileContainer = styled.div`
   display: flex;
@@ -315,6 +402,19 @@ export const SuggestionsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 115vw;
+  }
+
+  &.expanded {
+    width: calc(95.5vw - 189px);
+
+    @media (max-width: 768px) {
+      width: 100vw;
+    }
+  }
+
 `;
 
 export const SearchBar = styled.div`
@@ -453,8 +553,16 @@ export const ForYouWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
+  @media (max-width: 768px) {
+    width: 115vw;
+  }
+
   &.expanded {
     width: calc(95.5vw - 189px);
+
+    @media (max-width: 768px) {
+      width: 100vw;
+    }
   }
 
   /* Scroll customization */
@@ -507,7 +615,7 @@ export const ForYouWrapper = styled.div`
 
 export const SectionTitle = styled.h4`
   margin-top: 20px;
-  margin-left: 30px;
+  margin-left: 25px;
   margin-bottom: 10px;
 
   color: #ffffff;
@@ -542,6 +650,7 @@ export const UnitsContainer = styled.div`
   overflow-x: auto;
   margin-top: -11px;
   max-width: 100%;
+  margin-left: 15px;
   padding-bottom: 30px;
   margin-bottom: -30px;
 
@@ -637,14 +746,14 @@ export const NewMusicContainer = styled.div`
   padding: 0px;
   border-radius: 8px;
   margin-top: -20px;
-  margin-left: 10px;
+  margin-left: 25px;
   margin-right: 10px;
 `;
 
 export const NewMusicTitle = styled.h3`
   color: white;
   margin-top: 35px;
-  margin-left: 30px;
+  margin-left: 25px;
 `;
 
 export const SongList = styled.ul`
