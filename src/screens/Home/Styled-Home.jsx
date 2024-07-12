@@ -39,6 +39,10 @@ export const AlbumWrapper = styled.div`
   margin-bottom: -15px;
   position: relative;
   transition: height 0.15s ease-in-out;
+
+  @media (max-width: 768px) {
+    margin-left: 3.7rem;
+  }
 `;
 
 export const AlbumImage = styled.img`
@@ -181,6 +185,12 @@ export const Progress = styled.input.attrs({ type: "range" })`
   margin-left: 30px;
   margin-bottom: 10px;
 
+  @media (max-width: 768px) {
+    margin-top: 20px;
+    margin-left: 60px;
+    width: 75%;
+  }
+
   &::-webkit-slider-runnable-track {
     height: 4px;
   }
@@ -221,11 +231,6 @@ export const Progress = styled.input.attrs({ type: "range" })`
     background: #000;
     cursor: pointer;
   }
-
-      @media (max-width: 768px) {
-        margin-top: 20px;
-        width: 85%;
-      }
 `;
 
 export const BadgeButtonWrapper = styled.div`
@@ -735,10 +740,13 @@ export const ForYouWrapper = styled.div`
 
 export const SectionTitle = styled.h4`
   margin-top: 20px;
-  margin-left: 22px;
+  margin-left: 17px;
   margin-bottom: 10px;
-
   color: #ffffff;
+
+  @media (max-width: 767px) {
+    margin-left: 65px;
+  }
 `;
 
 /* Componente Units */
@@ -770,9 +778,13 @@ export const UnitsContainer = styled.div`
   overflow-x: auto;
   margin-top: -11px;
   max-width: 100%;
-  margin-left: 13px;
+  margin-left: 8px;
   padding-bottom: 30px;
   margin-bottom: -30px;
+
+  @media (max-width: 768px) {
+    margin-left: 55px;
+  }
 
   /* Scroll customization */
   &::-webkit-scrollbar {
@@ -835,26 +847,25 @@ export const UnitName = styled.h4`
 export const ArtistNameN = styled.h2`
   position: absolute;
   bottom: 90px;
-  left: 67px;
+  left: 17px;
   font-size: 50px;
   color: #fff;
 
   @media (max-width: 768px) {
     margin-bottom: 50px;
-    margin-left: -45px;
+    margin-left: 47px;
     font-size: 30px;
     max-width: 90%;
   }
-  
 `;
 
 export const Subtitle = styled.h4`
   position: absolute;
-  left: 67px;
+  left: 17px;
   bottom: 70px;
 
   @media (max-width: 768px) {
-    margin-left: -45px;
+    margin-left: 48px;
     font-size: 17px;
     max-width: 90%;
     bottom: 80px;
@@ -864,7 +875,7 @@ export const Subtitle = styled.h4`
 export const PlayButton = styled.button`
   position: absolute;
   bottom: 0;
-  left: 67px;
+  left: 17px;
   bottom: 25px;
   padding: 10px 20px;
   background-color: #fff;
@@ -874,7 +885,7 @@ export const PlayButton = styled.button`
   cursor: pointer;
 
   @media (max-width: 768px) {
-    margin-left: -45px;
+    margin-left: 48px;
     font-size: 15px;
     margin-bottom: 20px;
   }
@@ -891,7 +902,7 @@ export const NewMusicContainer = styled.div`
   margin-right: 10px;
 
     @media (max-width: 768px) {
-      margin-left: 20px;
+      margin-left: 65px;
       margin-right: 20px;
     }
 `;
@@ -899,7 +910,11 @@ export const NewMusicContainer = styled.div`
 export const NewMusicTitle = styled.h3`
   color: white;
   margin-top: 35px;
-  margin-left: 22px;
+  margin-left: 17px;
+
+  @media (max-width: 768px) {
+    margin-left: 65px;
+  }
 `;
 
 export const SongList = styled.ul`
@@ -1052,13 +1067,13 @@ export const LabWrapper = styled.div`
   z-index: 999;
   border: 1px solid black;
 
-    @media (max-width: 768px) {
-      background-color: black;
-      margin-top: 13px;
-      margin-right: -215px;
-      border-radius: 20px;
-      padding: 9px 10px 8px 11px;
-    }
+  @media (max-width: 768px) {
+    background-color: black;
+    margin-top: 14px;
+    margin-right: -205px;
+    border-radius: 20px;
+    padding: 9px 10px 8px 11px;
+  }
 `;
 
 export const LabIcon = styled.img`

@@ -11,6 +11,14 @@ export const LyricLabContainer = styled.div`
   width: 99vw;
   display: flex;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    height: 200%;
+    margin-left: -30px;
+    margin-right: -30px;
+    padding-left: 20px;
+    padding-right: 10px;
+  }
 `;
 
 export const LyricText = styled.pre`
@@ -26,6 +34,12 @@ export const LyricText = styled.pre`
   text-align: center;
   overflow-x: hidden;
   color: white;
+
+  @media (max-width: 768px) {
+    padding-left: 60px;
+    padding-bottom: 100px;
+    font-size: 18px;
+  }
 
   span.current-line {
     color: white;
