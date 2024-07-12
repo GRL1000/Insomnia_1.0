@@ -17,6 +17,11 @@ export const Card = styled.div`
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 
   transition: width 0.3s ease;
+
+    @media (max-width: 768px) {
+      height: 8rem;
+      width: 120vw;
+    }
 `;
 
 export const TextInfo = styled.div`
@@ -50,6 +55,10 @@ export const TrackInfo = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+
+  @media (max-width: 768px) {
+    margin-left: 10px;
+  }
 `;
 
 export const TrackName = styled.p`
@@ -94,12 +103,64 @@ export const ControlWrapper = styled.div`
   gap: 2rem;
 `;
 
-export const SmallButtonWrapper = styled.div`
+export const SmallButtonWrapperS = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 2rem;
   height: 2rem;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const SmallButtonWrapperP = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const SmallButtonWrapperPP = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+
+  @media (max-width: 768px) {
+    margin-top: 10px;
+    margin-left: 335px;
+  }
+`;
+
+export const SmallButtonWrapperN = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const SmallButtonWrapperR = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const TimeWrapper = styled.div`
@@ -108,6 +169,10 @@ export const TimeWrapper = styled.div`
   margin-bottom: -25px;
   width: 625px;
   font-size: 15px;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
 `;
 
 export const Progress = styled.input.attrs({ type: "range" })`
@@ -156,6 +221,11 @@ export const Progress = styled.input.attrs({ type: "range" })`
     background: #000;
     cursor: pointer;
   }
+
+      @media (max-width: 768px) {
+        margin-top: 20px;
+        width: 85%;
+      }
 `;
 
 export const BadgeButtonWrapper = styled.div`
@@ -604,6 +674,7 @@ export const ForYouWrapper = styled.div`
 
   @media (max-width: 768px) {
     width: 115vw;
+    max-height: 60vh;
   }
 
   &.expanded {
@@ -821,6 +892,7 @@ export const NewMusicContainer = styled.div`
 
     @media (max-width: 768px) {
       margin-left: 20px;
+      margin-right: 20px;
     }
 `;
 
@@ -972,12 +1044,24 @@ export const OscurecerOverlay = styled.div`
 
 export const LabWrapper = styled.div`
   position: absolute;
-  top: 40px;
+  background-color: black;
+  border-radius: 20px;
+  padding: 9px 10px 8px 11px;
+  top: 18px;
   right: 300px;
   z-index: 999;
+  border: 1px solid black;
+
+    @media (max-width: 768px) {
+      background-color: black;
+      margin-top: 13px;
+      margin-right: -215px;
+      border-radius: 20px;
+      padding: 9px 10px 8px 11px;
+    }
 `;
 
 export const LabIcon = styled.img`
-  width: 30px;
+  width: 25px;
   height: auto;
 `;
