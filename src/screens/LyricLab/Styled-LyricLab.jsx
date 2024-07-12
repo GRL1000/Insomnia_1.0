@@ -16,6 +16,8 @@ export const LyricLabContainer = styled.div`
     height: 200%;
     margin-left: -30px;
     margin-right: -30px;
+    margin-top: -200px;
+    margin-bottom: -30px;
     padding-left: 20px;
     padding-right: 10px;
   }
