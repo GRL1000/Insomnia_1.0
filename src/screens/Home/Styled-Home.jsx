@@ -467,6 +467,11 @@ export const SearchBar = styled.div`
   top: 10px;
   right: 40px;
   z-index: 1000;
+
+  @media (max-width: 768px) {
+    margin-top: -4px;
+    margin-right: 120px;
+  }
 `;
 
 export const IconSearch = styled.div`
@@ -509,6 +514,10 @@ export const SearchResults = styled.ul`
   max-height: 200px;
   overflow-y: auto;
   border-radius: 5px;
+
+  @media (max-width: 768px) {
+    width: 250px;
+  }
 
   /* Scroll customization */
   &::-webkit-scrollbar {
@@ -655,7 +664,7 @@ export const ForYouWrapper = styled.div`
 
 export const SectionTitle = styled.h4`
   margin-top: 20px;
-  margin-left: 25px;
+  margin-left: 22px;
   margin-bottom: 10px;
 
   color: #ffffff;
@@ -690,7 +699,7 @@ export const UnitsContainer = styled.div`
   overflow-x: auto;
   margin-top: -11px;
   max-width: 100%;
-  margin-left: 15px;
+  margin-left: 13px;
   padding-bottom: 30px;
   margin-bottom: -30px;
 
@@ -758,12 +767,27 @@ export const ArtistNameN = styled.h2`
   left: 67px;
   font-size: 50px;
   color: #fff;
+
+  @media (max-width: 768px) {
+    margin-bottom: 50px;
+    margin-left: -45px;
+    font-size: 30px;
+    max-width: 90%;
+  }
+  
 `;
 
 export const Subtitle = styled.h4`
   position: absolute;
   left: 67px;
   bottom: 70px;
+
+  @media (max-width: 768px) {
+    margin-left: -45px;
+    font-size: 17px;
+    max-width: 90%;
+    bottom: 80px;
+  }
 `;
 
 export const PlayButton = styled.button`
@@ -777,6 +801,12 @@ export const PlayButton = styled.button`
   border: none;
   border-radius: 20px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    margin-left: -45px;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
 `;
 
 /* Sección Nueva Música */
@@ -786,14 +816,18 @@ export const NewMusicContainer = styled.div`
   padding: 0px;
   border-radius: 8px;
   margin-top: -20px;
-  margin-left: 25px;
+  margin-left: 20px;
   margin-right: 10px;
+
+    @media (max-width: 768px) {
+      margin-left: 20px;
+    }
 `;
 
 export const NewMusicTitle = styled.h3`
   color: white;
   margin-top: 35px;
-  margin-left: 25px;
+  margin-left: 22px;
 `;
 
 export const SongList = styled.ul`

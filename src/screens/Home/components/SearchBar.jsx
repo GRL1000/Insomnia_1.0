@@ -15,6 +15,10 @@ const SearchBar = ({ onTrackSelect }) => {
     setIsInputFocused(true);
   };
 
+  const handleInputBlur = () => {
+    setIsInputFocused(false);
+  };
+
   const handleSearch = async (e) => {
     e.preventDefault();
     if (query.trim() === "") return;
@@ -28,7 +32,10 @@ const SearchBar = ({ onTrackSelect }) => {
   };
 
   const handleClickOutside = (event) => {
-    if (searchBarRef.current && !searchBarRef.current.contains(event.target)) {
+    if (
+      searchBarRef.current &&
+      !searchBarRef.current.contains(event.target)
+    ) {
       setResults([]);
       setIsInputFocused(false);
       setQuery("");
@@ -41,6 +48,8 @@ const SearchBar = ({ onTrackSelect }) => {
       document.removeEventListener("click", handleClickOutside, true);
     };
   }, []);
+
+  const showEllipsis = !isInputFocused && window.innerWidth <= 768;
 
   return (
     <S.SearchBar ref={searchBarRef}>
@@ -55,10 +64,9 @@ const SearchBar = ({ onTrackSelect }) => {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder={
-            isInputFocused ? "" : "Buscar canciones, artistas y más..."
-          }
+          placeholder={isInputFocused ? "" : (showEllipsis ? "Buscar canciones, artistas..." : "Buscar canciones, artistas y más...")}
           onFocus={handleInputFocus}
+          onBlur={handleInputBlur}
         />
         <button type="submit" style={{ display: "none" }}>
           Search
@@ -67,10 +75,15 @@ const SearchBar = ({ onTrackSelect }) => {
       {results.length > 0 && (
         <S.SearchResults>
           {results.map((track) => (
-            <S.SearchResultItem key={track.id} onClick={() => onTrackSelect(track)}>
+            <S.SearchResultItem
+              key={track.id}
+              onClick={() => onTrackSelect(track)}
+            >
               <S.TrackImage src={track.album.images[0].url} alt={track.name} />
-                <S.TrackName>{track.name}</S.TrackName>
-                <S.ArtistName>{track.artists.map(artist => artist.name).join(", ")}</S.ArtistName>
+              <S.TrackName>{track.name}</S.TrackName>
+              <S.ArtistName>
+                {track.artists.map((artist) => artist.name).join(", ")}
+              </S.ArtistName>
             </S.SearchResultItem>
           ))}
         </S.SearchResults>
