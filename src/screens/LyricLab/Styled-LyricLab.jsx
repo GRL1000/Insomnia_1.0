@@ -13,13 +13,74 @@ export const LyricLabContainer = styled.div`
   justify-content: center;
 
   @media (max-width: 768px) {
-    height: 200%;
-    margin-left: -30px;
-    margin-right: -30px;
-    margin-top: -200px;
-    margin-bottom: -30px;
-    padding-left: 20px;
-    padding-right: 10px;
+  height: 160%;
+  margin-left: -40px;
+  margin-right: -50px;
+  margin-top: -210px;
+  margin-bottom: -50px;
+  padding-left: 30px;
+  padding-right: 10px;
+  }
+
+  @media (max-width: 748px) {
+  }
+
+  @media (max-width: 600px) {
+
+  }
+
+  @media (max-width: 480px) {
+
+  }
+
+  @media (max-width: 430px) {
+    height: 160%;
+  margin-left: -40px;
+  margin-right: -50px;
+  margin-top: -200px;
+  margin-bottom: -50px;
+  padding-left: 30px;
+  padding-right: 10px;
+  }
+
+  @media (max-width: 414px) {
+    height: 150%;
+  margin-left: -35px;
+  margin-right: -45px;
+  margin-top: -200px;
+  margin-bottom: -45px;
+  padding-left: 25px;
+  padding-right: 10px;
+  }
+
+  @media (max-width: 412px) {
+    
+  }
+
+  @media (max-width: 390px) {
+
+  }
+
+  @media (max-width: 375px) {
+
+  }
+
+  @media (max-width: 360px) {
+
+  }
+
+  @media (max-width: 344px) {
+    height: 125%;
+  margin-left: -15px;
+  margin-right: -25px;
+  margin-top: -200px;
+  margin-bottom: -25px;
+  padding-left: 10px;
+  padding-right: 10px;
+  }
+
+  @media (max-width: 320px) {
+
   }
 `;
 
@@ -36,11 +97,12 @@ export const LyricText = styled.pre`
   text-align: center;
   overflow-x: hidden;
   color: white;
+  font-weight: bold;
 
   @media (max-width: 768px) {
     padding-left: 60px;
     padding-bottom: 100px;
-    font-size: 18px;
+    font-size: 20px;
   }
 
   span.current-line {
@@ -221,7 +283,7 @@ export const FaMicrophoneContainer = styled.div`
 
   &:hover {
     color: #0033cc;
-    transform: scale(1.10);
+    transform: scale(1.1);
   }
 
   &:active {

@@ -41,7 +41,8 @@ export const AlbumWrapper = styled.div`
   transition: height 0.15s ease-in-out;
 
   @media (max-width: 768px) {
-    margin-left: 3.7rem;
+    width: 65px;
+    margin-left: 3rem;
   }
 `;
 
@@ -137,9 +138,57 @@ export const SmallButtonWrapperPP = styled.div`
   width: 2rem;
   height: 2rem;
 
+  @media (max-width: 1024px) {
+    margin-left: 300px;
+  }
+
   @media (max-width: 768px) {
     margin-top: 10px;
-    margin-left: 335px;
+    margin-left: 347px;
+  }
+
+  @media (max-width: 748px) {
+    margin-left: 414px;
+  }
+
+  @media (max-width: 600px) {
+    margin-left: 280px;
+  }
+
+  @media (max-width: 480px) {
+    margin-left: 240px;
+  }
+
+  @media (max-width: 430px) {
+    margin-left: 435px;
+  }
+
+  @media (max-width: 414px) {
+    margin-left: 420px;
+  }
+
+  @media (max-width: 412px) {
+    margin-left: 420px;
+  }
+
+  @media (max-width: 390px) {
+    margin-left: 390px;
+  }
+
+  @media (max-width: 375px) {
+    margin-left: 380px;
+  }
+
+  @media (max-width: 360px) {
+    margin-left: 348px;
+  }
+
+  @media (max-width: 344px) {
+    margin-left: 340px;
+  }
+
+  @media (max-width: 320px) {
+    margin-left: 150px;
   }
 `;
 
@@ -188,7 +237,13 @@ export const Progress = styled.input.attrs({ type: "range" })`
   @media (max-width: 768px) {
     margin-top: 20px;
     margin-left: 60px;
-    width: 75%;
+    width: 82%;
+  }
+
+  @media (max-width: 748px) {
+    margin-top: 20px;
+    margin-left: 68px;
+    width: 80%;
   }
 
   &::-webkit-slider-runnable-track {
@@ -744,8 +799,8 @@ export const SectionTitle = styled.h4`
   margin-bottom: 10px;
   color: #ffffff;
 
-  @media (max-width: 767px) {
-    margin-left: 65px;
+  @media (max-width: 768px) {
+    margin-left: 54px;
   }
 `;
 
@@ -783,7 +838,8 @@ export const UnitsContainer = styled.div`
   margin-bottom: -30px;
 
   @media (max-width: 768px) {
-    margin-left: 55px;
+    margin-right: 9px;
+    margin-left: 45px;
   }
 
   /* Scroll customization */
@@ -853,7 +909,7 @@ export const ArtistNameN = styled.h2`
 
   @media (max-width: 768px) {
     margin-bottom: 50px;
-    margin-left: 47px;
+    margin-left: 37px;
     font-size: 30px;
     max-width: 90%;
   }
@@ -865,7 +921,7 @@ export const Subtitle = styled.h4`
   bottom: 70px;
 
   @media (max-width: 768px) {
-    margin-left: 48px;
+    margin-left: 37px;
     font-size: 17px;
     max-width: 90%;
     bottom: 80px;
@@ -885,7 +941,7 @@ export const PlayButton = styled.button`
   cursor: pointer;
 
   @media (max-width: 768px) {
-    margin-left: 48px;
+    margin-left: 38px;
     font-size: 15px;
     margin-bottom: 20px;
   }
@@ -902,8 +958,8 @@ export const NewMusicContainer = styled.div`
   margin-right: 10px;
 
     @media (max-width: 768px) {
-      margin-left: 65px;
-      margin-right: 20px;
+      margin-left: 56px;
+      margin-right: 18px;
     }
 `;
 
@@ -913,7 +969,7 @@ export const NewMusicTitle = styled.h3`
   margin-left: 17px;
 
   @media (max-width: 768px) {
-    margin-left: 65px;
+    margin-left: 54px;
   }
 `;
 
@@ -1070,9 +1126,9 @@ export const LabWrapper = styled.div`
   @media (max-width: 768px) {
     background-color: black;
     margin-top: 14px;
-    margin-right: -205px;
+    margin-right: -218px;
     border-radius: 20px;
-    padding: 9px 10px 8px 11px;
+    padding: 10px 10px 7px 11px;
   }
 `;
 
