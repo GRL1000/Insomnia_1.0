@@ -9,6 +9,7 @@ import LyricLab from '../LyricLab/LyricLab';
 import Credits from '../Credits/Credits';
 import { GetToken, fetchUserPlaylists } from '../../utils/InMemoryToken';
 import SidebarMobile from './components/SidebarMobile';
+import CircularMenu from '../LyricLab/components/CircularMenu';
 
 export function Home() {
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
@@ -19,6 +20,7 @@ export function Home() {
   const [playlists, setPlaylists] = useState([]);
   const [showCredits, setShowCredits] = useState(false);
   const [showSidebarMobile, setShowSidebarMobile] = useState(false);
+  const [showCircularMenu, setShowCircularMenu] = useState(false);
   const { user } = GetToken();
 
   useEffect(() => {
@@ -50,6 +52,9 @@ export function Home() {
 
   const toggleLyricLabVisibility = () => {
     setIsLyricLabVisible(!isLyricLabVisible);
+    if (window.innerWidth <= 768) {
+      setShowCircularMenu(true);
+    }
   };
 
   const handleMouseEnter = () => {
@@ -73,6 +78,22 @@ export function Home() {
   const handleToggleSidebarMobile = () => {
     setShowSidebarMobile(!showSidebarMobile);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setShowCircularMenu(false);
+      } else if (isLyricLabVisible) {
+        setShowCircularMenu(true);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isLyricLabVisible]);
 
   return (
     <div className="container" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -101,7 +122,11 @@ export function Home() {
           )}
           {isLyricLabVisible ? (
             <>
-              <LyricLab sidebarExpanded={sidebarExpanded} />
+              <LyricLab
+                sidebarExpanded={sidebarExpanded}
+                onLyricLabToggle={toggleLyricLabVisibility}
+              />
+              {showCircularMenu && <CircularMenu isVisible={true} />}
             </>
           ) : (
             <>
@@ -109,9 +134,9 @@ export function Home() {
               <ForYou sidebarExpanded={sidebarExpanded} bgColor={forYouBgColor} />
             </>
           )}
-           <PlaybackBar
-            bgColor={PlayBackColor}
-            toggleLyricLabVisibility={toggleLyricLabVisibility}/>
+          <PlaybackBar
+          bgColor={PlayBackColor}
+          toggleLyricLabVisibility={toggleLyricLabVisibility}/>
         </>
       )}
     </div>

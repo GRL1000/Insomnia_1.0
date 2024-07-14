@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 export const LyricLabContainer = styled.div`
   background-color: transparent;
@@ -353,4 +353,73 @@ export const Transcript = styled.p`
   text-align: center;
   white-space: pre-wrap;
   line-height: 1.5;
+`;
+
+const slideUp = keyframes`
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+`;
+
+export const Nav = styled.nav`
+  position: absolute;
+  top: 340px;
+  right: 0;
+  width: 80px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  animation: ${({ isVisible }) => (isVisible ? slideUp : 'none')} 0.6s ease;
+`;
+
+export const NavContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-45deg);
+`;
+
+export const ToggleButton = styled.div`
+  height: 60px;
+  width: 60px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  font-size: 35px;
+  color: #0e2431;
+  z-index: 100;
+  cursor: pointer;
+  transform: ${({ isOpen }) => (isOpen ? 'rotate(0deg)' : 'rotate(-225deg)')};
+  transition: all 0.6s ease;
+`;
+
+export const MenuSpan = styled.span`
+  position: absolute;
+  transition: all 0.6s ease;
+  background-color: white;
+  padding: 20px;
+  border-radius: 40px;
+  opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
+  transform: ${({ isOpen, index }) =>
+    isOpen ? `rotate(calc(${index + 1} * (360deg / 8))) translateY(120px)` : 'rotate(0deg)'};
+`;
+
+export const StyledLink = styled.a`
+  text-decoration: none;
+  transform: rotate(45deg);
+`;
+
+export const Icon = styled.i`
+  font-size: 24px;
+  color: #000000;
+  opacity: 0.8;
+  transition: 0.2s;
 `;
