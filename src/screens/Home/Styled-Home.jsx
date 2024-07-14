@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import Button from "../../inputs/Button";
 
 export const Card = styled.div`
@@ -17,6 +17,11 @@ export const Card = styled.div`
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 
   transition: width 0.3s ease;
+
+    @media (max-width: 768px) {
+      height: 8rem;
+      width: 120vw;
+    }
 `;
 
 export const TextInfo = styled.div`
@@ -34,6 +39,11 @@ export const AlbumWrapper = styled.div`
   margin-bottom: -15px;
   position: relative;
   transition: height 0.15s ease-in-out;
+
+  @media (max-width: 768px) {
+    width: 65px;
+    margin-left: 3rem;
+  }
 `;
 
 export const AlbumImage = styled.img`
@@ -50,6 +60,10 @@ export const TrackInfo = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+
+  @media (max-width: 768px) {
+    margin-left: 10px;
+  }
 `;
 
 export const TrackName = styled.p`
@@ -94,12 +108,112 @@ export const ControlWrapper = styled.div`
   gap: 2rem;
 `;
 
-export const SmallButtonWrapper = styled.div`
+export const SmallButtonWrapperS = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 2rem;
   height: 2rem;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const SmallButtonWrapperP = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const SmallButtonWrapperPP = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+
+  @media (max-width: 1024px) {
+    margin-left: 300px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 10px;
+    margin-left: 347px;
+  }
+
+  @media (max-width: 748px) {
+    margin-left: 414px;
+  }
+
+  @media (max-width: 600px) {
+    margin-left: 280px;
+  }
+
+  @media (max-width: 480px) {
+    margin-left: 240px;
+  }
+
+  @media (max-width: 430px) {
+    margin-left: 435px;
+  }
+
+  @media (max-width: 414px) {
+    margin-left: 420px;
+  }
+
+  @media (max-width: 412px) {
+    margin-left: 420px;
+  }
+
+  @media (max-width: 390px) {
+    margin-left: 390px;
+  }
+
+  @media (max-width: 375px) {
+    margin-left: 380px;
+  }
+
+  @media (max-width: 360px) {
+    margin-left: 348px;
+  }
+
+  @media (max-width: 344px) {
+    margin-left: 340px;
+  }
+
+  @media (max-width: 320px) {
+    margin-left: 150px;
+  }
+`;
+
+export const SmallButtonWrapperN = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const SmallButtonWrapperR = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const TimeWrapper = styled.div`
@@ -108,6 +222,10 @@ export const TimeWrapper = styled.div`
   margin-bottom: -25px;
   width: 625px;
   font-size: 15px;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
 `;
 
 export const Progress = styled.input.attrs({ type: "range" })`
@@ -115,6 +233,18 @@ export const Progress = styled.input.attrs({ type: "range" })`
   margin: 0 1rem;
   margin-left: 30px;
   margin-bottom: 10px;
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+    margin-left: 60px;
+    width: 82%;
+  }
+
+  @media (max-width: 748px) {
+    margin-top: 20px;
+    margin-left: 68px;
+    width: 80%;
+  }
 
   &::-webkit-slider-runnable-track {
     height: 4px;
@@ -194,7 +324,94 @@ export const SidebarWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
+
+const slideIn = keyframes`
+  from {
+    transform: translateX(-20px) scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+`;
+
+export const SidebarToggle = styled.div`
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  z-index: 2000;
+  display: none;
+  animation: ${slideIn} 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
+
+export const SidebarMobileWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 190px;
+  height: 100vh;
+  z-index: 1000;
+  background-color: black;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+
+  &.show {
+    transform: translateX(0);
+  }
+`;
+
+export const MobileMenuItem = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  margin-top: 90px;
+  margin-left: 190px;
+  margin-bottom: -70px;
+  font-size: 18px;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: border 0.1s, transform 0.3s, color 0.3s, ease-in-out;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    border: 2px solid white;
+    border-radius: 10px;
+    margin-left: 200px;
+    margin-right: -160px;
+    color: cyan;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`;
+
+export const IconMB = styled.img`
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+`;
+
+export const Span = styled.span`
+  white-space: nowrap;
+  vertical-align: middle;
+`;
+
 
 export const ProfileContainer = styled.div`
   display: flex;
@@ -289,6 +506,39 @@ export const PlaylistContainer = styled.div`
   }
 `;
 
+export const PlaylistContainerM = styled.div`
+  padding-left: 20px;
+  padding-right: 150px;
+  
+  margin-top: 100px;
+  margin-left: 200px;
+  height: 200px;
+  overflow-y: auto;
+  /* Scroll customization */
+  &::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #b2b6b8d3;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 767px) {
+    scrollbar-width: thin;
+  }
+`;
+
 
 export const PlaylistItem = styled.div`
   padding: 5px 0;
@@ -299,6 +549,13 @@ export const PlaylistItem = styled.div`
   }
 `;
 
+export const PlaylistItemM = styled.div`
+  padding: 5px 0;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
 
 /* Sección de sugerencias */
 
@@ -315,6 +572,19 @@ export const SuggestionsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 115vw;
+  }
+
+  &.expanded {
+    width: calc(95.5vw - 189px);
+
+    @media (max-width: 768px) {
+      width: 100vw;
+    }
+  }
+
 `;
 
 export const SearchBar = styled.div`
@@ -327,6 +597,11 @@ export const SearchBar = styled.div`
   top: 10px;
   right: 40px;
   z-index: 1000;
+
+  @media (max-width: 768px) {
+    margin-top: -4px;
+    margin-right: 120px;
+  }
 `;
 
 export const IconSearch = styled.div`
@@ -369,6 +644,10 @@ export const SearchResults = styled.ul`
   max-height: 200px;
   overflow-y: auto;
   border-radius: 5px;
+
+  @media (max-width: 768px) {
+    width: 250px;
+  }
 
   /* Scroll customization */
   &::-webkit-scrollbar {
@@ -453,8 +732,17 @@ export const ForYouWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
+  @media (max-width: 768px) {
+    width: 115vw;
+    max-height: 60vh;
+  }
+
   &.expanded {
     width: calc(95.5vw - 189px);
+
+    @media (max-width: 768px) {
+      width: 100vw;
+    }
   }
 
   /* Scroll customization */
@@ -507,10 +795,13 @@ export const ForYouWrapper = styled.div`
 
 export const SectionTitle = styled.h4`
   margin-top: 20px;
-  margin-left: 30px;
+  margin-left: 17px;
   margin-bottom: 10px;
-
   color: #ffffff;
+
+  @media (max-width: 768px) {
+    margin-left: 54px;
+  }
 `;
 
 /* Componente Units */
@@ -542,8 +833,14 @@ export const UnitsContainer = styled.div`
   overflow-x: auto;
   margin-top: -11px;
   max-width: 100%;
+  margin-left: 8px;
   padding-bottom: 30px;
   margin-bottom: -30px;
+
+  @media (max-width: 768px) {
+    margin-right: 9px;
+    margin-left: 45px;
+  }
 
   /* Scroll customization */
   &::-webkit-scrollbar {
@@ -606,21 +903,35 @@ export const UnitName = styled.h4`
 export const ArtistNameN = styled.h2`
   position: absolute;
   bottom: 90px;
-  left: 67px;
+  left: 17px;
   font-size: 50px;
   color: #fff;
+
+  @media (max-width: 768px) {
+    margin-bottom: 50px;
+    margin-left: 37px;
+    font-size: 30px;
+    max-width: 90%;
+  }
 `;
 
 export const Subtitle = styled.h4`
   position: absolute;
-  left: 67px;
+  left: 17px;
   bottom: 70px;
+
+  @media (max-width: 768px) {
+    margin-left: 37px;
+    font-size: 17px;
+    max-width: 90%;
+    bottom: 80px;
+  }
 `;
 
 export const PlayButton = styled.button`
   position: absolute;
   bottom: 0;
-  left: 67px;
+  left: 17px;
   bottom: 25px;
   padding: 10px 20px;
   background-color: #fff;
@@ -628,6 +939,12 @@ export const PlayButton = styled.button`
   border: none;
   border-radius: 20px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    margin-left: 38px;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
 `;
 
 /* Sección Nueva Música */
@@ -637,14 +954,23 @@ export const NewMusicContainer = styled.div`
   padding: 0px;
   border-radius: 8px;
   margin-top: -20px;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-right: 10px;
+
+    @media (max-width: 768px) {
+      margin-left: 56px;
+      margin-right: 18px;
+    }
 `;
 
 export const NewMusicTitle = styled.h3`
   color: white;
   margin-top: 35px;
-  margin-left: 30px;
+  margin-left: 17px;
+
+  @media (max-width: 768px) {
+    margin-left: 54px;
+  }
 `;
 
 export const SongList = styled.ul`
@@ -789,12 +1115,24 @@ export const OscurecerOverlay = styled.div`
 
 export const LabWrapper = styled.div`
   position: absolute;
-  top: 40px;
+  background-color: black;
+  border-radius: 20px;
+  padding: 9px 10px 8px 11px;
+  top: 18px;
   right: 300px;
   z-index: 999;
+  border: 1px solid black;
+
+  @media (max-width: 768px) {
+    background-color: black;
+    margin-top: 14px;
+    margin-right: -218px;
+    border-radius: 20px;
+    padding: 10px 10px 7px 11px;
+  }
 `;
 
 export const LabIcon = styled.img`
-  width: 30px;
+  width: 25px;
   height: auto;
 `;

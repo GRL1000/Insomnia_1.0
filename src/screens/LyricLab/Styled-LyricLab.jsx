@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 export const LyricLabContainer = styled.div`
   background-color: transparent;
@@ -11,6 +11,77 @@ export const LyricLabContainer = styled.div`
   width: 99vw;
   display: flex;
   justify-content: center;
+
+  @media (max-width: 768px) {
+  height: 160%;
+  margin-left: -40px;
+  margin-right: -50px;
+  margin-top: -210px;
+  margin-bottom: -50px;
+  padding-left: 30px;
+  padding-right: 10px;
+  }
+
+  @media (max-width: 748px) {
+  }
+
+  @media (max-width: 600px) {
+
+  }
+
+  @media (max-width: 480px) {
+
+  }
+
+  @media (max-width: 430px) {
+    height: 160%;
+  margin-left: -40px;
+  margin-right: -50px;
+  margin-top: -200px;
+  margin-bottom: -50px;
+  padding-left: 30px;
+  padding-right: 10px;
+  }
+
+  @media (max-width: 414px) {
+    height: 150%;
+  margin-left: -35px;
+  margin-right: -45px;
+  margin-top: -200px;
+  margin-bottom: -45px;
+  padding-left: 25px;
+  padding-right: 10px;
+  }
+
+  @media (max-width: 412px) {
+    
+  }
+
+  @media (max-width: 390px) {
+
+  }
+
+  @media (max-width: 375px) {
+
+  }
+
+  @media (max-width: 360px) {
+
+  }
+
+  @media (max-width: 344px) {
+    height: 125%;
+  margin-left: -15px;
+  margin-right: -25px;
+  margin-top: -200px;
+  margin-bottom: -25px;
+  padding-left: 10px;
+  padding-right: 10px;
+  }
+
+  @media (max-width: 320px) {
+
+  }
 `;
 
 export const LyricText = styled.pre`
@@ -26,6 +97,13 @@ export const LyricText = styled.pre`
   text-align: center;
   overflow-x: hidden;
   color: white;
+  font-weight: bold;
+
+  @media (max-width: 768px) {
+    padding-left: 60px;
+    padding-bottom: 100px;
+    font-size: 20px;
+  }
 
   span.current-line {
     color: white;
@@ -205,7 +283,7 @@ export const FaMicrophoneContainer = styled.div`
 
   &:hover {
     color: #0033cc;
-    transform: scale(1.10);
+    transform: scale(1.1);
   }
 
   &:active {
@@ -275,4 +353,73 @@ export const Transcript = styled.p`
   text-align: center;
   white-space: pre-wrap;
   line-height: 1.5;
+`;
+
+const slideUp = keyframes`
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+`;
+
+export const Nav = styled.nav`
+  position: absolute;
+  top: 340px;
+  right: 0;
+  width: 80px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  animation: ${({ isVisible }) => (isVisible ? slideUp : 'none')} 0.6s ease;
+`;
+
+export const NavContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-45deg);
+`;
+
+export const ToggleButton = styled.div`
+  height: 60px;
+  width: 60px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  font-size: 35px;
+  color: #0e2431;
+  z-index: 100;
+  cursor: pointer;
+  transform: ${({ isOpen }) => (isOpen ? 'rotate(0deg)' : 'rotate(-225deg)')};
+  transition: all 0.6s ease;
+`;
+
+export const MenuSpan = styled.span`
+  position: absolute;
+  transition: all 0.6s ease;
+  background-color: white;
+  padding: 20px;
+  border-radius: 40px;
+  opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
+  transform: ${({ isOpen, index }) =>
+    isOpen ? `rotate(calc(${index + 1} * (360deg / 8))) translateY(120px)` : 'rotate(0deg)'};
+`;
+
+export const StyledLink = styled.a`
+  text-decoration: none;
+  transform: rotate(45deg);
+`;
+
+export const Icon = styled.i`
+  font-size: 24px;
+  color: #000000;
+  opacity: 0.8;
+  transition: 0.2s;
 `;

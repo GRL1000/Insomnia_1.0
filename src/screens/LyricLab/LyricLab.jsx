@@ -64,15 +64,21 @@ const LyricLab = ({ lyrics = "", songName = "", artistName = "", backgroundColor
   };
 
   useEffect(() => {
-    setHighlightedLyrics('');
-    setActiveOption("");
+    setIsTopicListVisible(false);
+    setIsSpeechVisible(false);
   }, [lyrics]);
 
+  const isSidebarExpandedOrLargeScreen = sidebarExpanded || window.innerWidth > 768;
+
   return (
-    <S.LyricLabContainer className={sidebarExpanded ? "expanded" : ""} style={{ backgroundColor }} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <S.LyricLabContainer className={isSidebarExpandedOrLargeScreen ? "expanded" : ""} style={{ backgroundColor }} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <S.LyricText dangerouslySetInnerHTML={{ __html: highlightedLyrics || cleanedLyrics }} />
+      {isSidebarExpandedOrLargeScreen && (
+        <>
       {isTopicListVisible && <TopicList highlightQuestions={highlightQuestions} highlightWhose={highlightWhose} highlightStateVerbs={highlightStateVerbs} activeOption={activeOption} />}
       {isSpeechVisible && <Speech />}
+        </>
+      )}
     </S.LyricLabContainer>
   );
 };

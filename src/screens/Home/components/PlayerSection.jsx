@@ -44,17 +44,17 @@ const PlayerSection = ({
       </S.TextInfo>
     </S.TrackInfo>
     <S.ControlWrapper>
-      <S.SmallButtonWrapper>
+      <S.SmallButtonWrapperS>
         <BadgeButton isActive={isShuffle} onClick={toggleShuffleHandler}>
           <ShuffleIcon />
         </BadgeButton>
-      </S.SmallButtonWrapper>
-      <S.SmallButtonWrapper>
+      </S.SmallButtonWrapperS>
+      <S.SmallButtonWrapperP>
         <ControlButton onClick={previousHandler}>
           <PreviousIcon />
         </ControlButton>
-      </S.SmallButtonWrapper>
-      <S.SmallButtonWrapper>
+      </S.SmallButtonWrapperP>
+      <S.SmallButtonWrapperPP>
         {isPlaying ? (
           <ControlButton variant="outlined" size="sm" onClick={pauseHandler}>
             <PauseIcon />
@@ -64,13 +64,13 @@ const PlayerSection = ({
             <PlayIcon />
           </ControlButton>
         )}
-      </S.SmallButtonWrapper>
-      <S.SmallButtonWrapper>
+      </S.SmallButtonWrapperPP>
+      <S.SmallButtonWrapperN>
         <ControlButton onClick={nextHandler}>
           <NextIcon />
         </ControlButton>
-      </S.SmallButtonWrapper>
-      <S.SmallButtonWrapper>
+      </S.SmallButtonWrapperN>
+      <S.SmallButtonWrapperR>
         <BadgeButton
           isActive={repeat}
           badge={repeat === 2 && "1"}
@@ -78,7 +78,7 @@ const PlayerSection = ({
         >
           <RepeatIcon />
         </BadgeButton>
-      </S.SmallButtonWrapper>
+      </S.SmallButtonWrapperR>
     </S.ControlWrapper>
     <S.TimeWrapper>
       <p size="xs">{MiliToMinutesSeconds(progressMs)}</p>

@@ -19,7 +19,7 @@ function Sidebar({ expanded, onToggle, user, onHomeClick, playlists, onShowCredi
 
   return (
     <S.SidebarWrapper
-      style={{ width: expanded ? "250px" : "63px" }}
+      style={{ width: expanded ? "252px" : "65px" }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
