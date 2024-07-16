@@ -36,7 +36,7 @@ const TopicList = ({ highlightQuestions, highlightWhose, highlightStateVerbs }) 
     setIsVisible(false);
   };
 
-  const repeatedLocations = [...locations, ...locations, ...locations, ...locations, ...locations]; // Aumenta las repeticiones
+  const repeatedLocations = [...locations, ...locations, ...locations, ...locations, ...locations];
 
   return (
     <S.TopicListContainer>
