@@ -13,74 +13,67 @@ export const LyricLabContainer = styled.div`
   justify-content: center;
 
   @media (max-width: 768px) {
-  height: 160%;
-  margin-left: -40px;
-  margin-right: -50px;
-  margin-top: -210px;
-  margin-bottom: -50px;
-  padding-left: 30px;
-  padding-right: 10px;
+    height: 160%;
+    margin-left: -40px;
+    margin-right: -50px;
+    margin-top: -210px;
+    margin-bottom: -50px;
+    padding-left: 30px;
+    padding-right: 10px;
   }
 
   @media (max-width: 748px) {
   }
 
   @media (max-width: 600px) {
-
   }
 
   @media (max-width: 480px) {
-
   }
 
   @media (max-width: 430px) {
     height: 160%;
-  margin-left: -40px;
-  margin-right: -50px;
-  margin-top: -200px;
-  margin-bottom: -50px;
-  padding-left: 30px;
-  padding-right: 10px;
+    margin-left: -40px;
+    margin-right: -50px;
+    margin-top: -200px;
+    margin-bottom: -50px;
+    padding-left: 30px;
+    padding-right: 10px;
   }
 
   @media (max-width: 414px) {
     height: 150%;
-  margin-left: -35px;
-  margin-right: -45px;
-  margin-top: -200px;
-  margin-bottom: -45px;
-  padding-left: 25px;
-  padding-right: 10px;
+    margin-left: -35px;
+    margin-right: -45px;
+    margin-top: -200px;
+    margin-bottom: -45px;
+    padding-left: 25px;
+    padding-right: 10px;
   }
 
   @media (max-width: 412px) {
-    
   }
 
   @media (max-width: 390px) {
-
   }
 
   @media (max-width: 375px) {
-
   }
 
   @media (max-width: 360px) {
-
   }
 
   @media (max-width: 344px) {
     height: 125%;
-  margin-left: -15px;
-  margin-right: -25px;
-  margin-top: -200px;
-  margin-bottom: -25px;
-  padding-left: 10px;
-  padding-right: 10px;
+    margin-left: -15px;
+    margin-right: -25px;
+    margin-top: -200px;
+    margin-bottom: -25px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   @media (max-width: 320px) {
-
   }
 `;
 
@@ -374,7 +367,7 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: center;
   cursor: grab;
-  animation: ${({ isVisible }) => (isVisible ? slideUp : 'none')} 0.6s ease;
+  animation: ${({ isVisible }) => (isVisible ? slideUp : "none")} 0.6s ease;
   z-index: 100;
 `;
 
@@ -384,8 +377,8 @@ export const NavContent = styled.div`
   justify-content: center;
   transform: rotate(-45deg);
   position: fixed;
-  top: 50%;
-  right: 0;
+  top: 55%;
+  right: 20px;
   z-index: 101;
 `;
 
@@ -402,7 +395,7 @@ export const ToggleButton = styled.div`
   color: #0e2431;
   z-index: 100;
   cursor: pointer;
-  transform: ${({ isOpen }) => (isOpen ? 'rotate(0deg)' : 'rotate(-225deg)')};
+  transform: ${({ isOpen }) => (isOpen ? "rotate(0deg)" : "rotate(-225deg)")};
   transition: all 0.6s ease;
 `;
 
@@ -412,9 +405,11 @@ export const MenuSpan = styled.span`
   background-color: white;
   padding: 20px;
   border-radius: 40px;
-  opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
+  opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
   transform: ${({ isOpen, index }) =>
-    isOpen ? `rotate(calc(${index + 1} * (360deg / 8))) translateY(120px)` : 'rotate(0deg)'};
+    isOpen
+      ? `rotate(calc(${index + 1} * (360deg / 8))) translateY(120px)`
+      : "rotate(0deg)"};
 `;
 
 export const StyledLink = styled.a`
@@ -427,4 +422,73 @@ export const Icon = styled.i`
   color: #000000;
   opacity: 0.8;
   transition: 0.2s;
+`;
+
+export const TranscriptContainerS = styled.div`
+  @media (max-width: 767px) {
+    margin-top: 30px;
+    margin-right: -200px;
+    margin-left: -450px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 175px;
+    width: 120vw;
+    max-height: 20px;
+    overflow-y: auto;
+    border-radius: 0px 0px 0px 0px;
+    border: 2px solid blue;
+    background-color: blue;
+    color: white;
+  }
+
+  /* Scroll customization */
+  &::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+
+  &::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: 0px none #b2b6b87f;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #b2b6b8d3;
+  }
+
+  &::-webkit-scrollbar-thumb:active {
+    background: #b2b6b8d3;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border: 0px solid #aaa;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track:hover {
+    background: #b2b6b87f;
+  }
+
+  &::-webkit-scrollbar-track:active {
+    background: #b2b6b87f;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  @media (max-width: 767px) {
+    scrollbar-width: thin;
+  }
+`;
+
+export const TranscriptS = styled.p`
+  font-size: 18px;
 `;

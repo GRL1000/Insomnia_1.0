@@ -107,9 +107,9 @@ const CircularMenu = ({ onHighlightQuestions, onHighlightWhose, onHighlightState
         ))}
       </S.NavContent>
       {isListening && (
-        <S.TranscriptContainer>
-          <S.Transcript>{transcript}</S.Transcript>
-        </S.TranscriptContainer>
+        <S.TranscriptContainerS>
+          <S.TranscriptS>{transcript}</S.TranscriptS>
+        </S.TranscriptContainerS>
       )}
     </S.Nav>
   );
