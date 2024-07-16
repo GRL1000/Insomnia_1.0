@@ -5,9 +5,13 @@ import { FaQuestion } from "react-icons/fa";
 import { FaW, FaStripeS, FaHeading } from "react-icons/fa6";
 import { GoPlus } from "react-icons/go";
 
+const recognition = new window.webkitSpeechRecognition();
+
 const CircularMenu = ({ onHighlightQuestions, onHighlightWhose, onHighlightStateVerbs }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [rotation, setRotation] = useState(0);
+  const [isListening, setIsListening] = useState(false);
+  const [transcript, setTranscript] = useState("");
   const [isBgChanged, setIsBgChanged] = useState(false);
 
   const toggleMenu = () => {
@@ -20,6 +24,39 @@ const CircularMenu = ({ onHighlightQuestions, onHighlightWhose, onHighlightState
       setRotation((prevRotation) => prevRotation + delta * 15);
     }
   };
+
+  const startListening = () => {
+    recognition.start();
+    setIsListening(true);
+  };
+
+  const stopListening = () => {
+    recognition.stop();
+    setIsListening(false);
+  };
+
+  useEffect(() => {
+    recognition.continuous = true;
+    recognition.lang = "en-US";
+
+    recognition.onstart = () => {
+      setIsListening(true);
+    };
+
+    recognition.onresult = (event) => {
+      const currentTranscript =
+        event.results[event.results.length - 1][0].transcript;
+      setTranscript(prevTranscript => prevTranscript + " " + currentTranscript);
+    };
+
+    recognition.onend = () => {
+      setIsListening(false);
+    };
+
+    return () => {
+      recognition.stop();
+    };
+  }, []);
 
   useEffect(() => {
     window.addEventListener('wheel', handleScroll);
@@ -34,12 +71,12 @@ const CircularMenu = ({ onHighlightQuestions, onHighlightWhose, onHighlightState
   };
 
   const icons = [
-    { icon: BiMicrophone, label: "microphone", action: () => {} },
+    { icon: BiMicrophone, label: "microphone", action: () => isListening ? stopListening() : startListening() },
     { icon: FaQuestion, label: "FaQuestion", action: onHighlightQuestions },
     { icon: FaW, label: "faw6", action: onHighlightWhose },
     { icon: FaStripeS, label: "FaStripeS", action: onHighlightStateVerbs },
-    { icon: FaHeading, label: "FaHeading", action: onHighlightStateVerbs }
-  ];
+    { icon: FaHeading, label: "FaHeading", action: onHighlightStateVerbs }  
+    ];
 
   return (
     <S.Nav className={isOpen ? "open" : ""} isBgChanged={isBgChanged}>
@@ -69,6 +106,11 @@ const CircularMenu = ({ onHighlightQuestions, onHighlightWhose, onHighlightState
           </S.MenuSpan>
         ))}
       </S.NavContent>
+      {isListening && (
+        <S.TranscriptContainer>
+          <S.Transcript>{transcript}</S.Transcript>
+        </S.TranscriptContainer>
+      )}
     </S.Nav>
   );
 };
