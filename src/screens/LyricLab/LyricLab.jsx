@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as S from "./Styled-LyricLab";
 import TopicList from "../LyricLab/components/TopicList";
 import Speech from "../LyricLab/components/Speech";
+import CircularMenu from "./components/CircularMenu";
 
 const removeUnwantedText = (lyrics, songName, artistName) => {
   if (!lyrics || !songName || !artistName) return lyrics;
@@ -79,6 +80,11 @@ const LyricLab = ({ lyrics = "", songName = "", artistName = "", backgroundColor
       {isSpeechVisible && <Speech />}
         </>
       )}
+      <CircularMenu
+        onHighlightQuestions={highlightQuestions}
+        onHighlightWhose={highlightWhose}
+        onHighlightStateVerbs={highlightStateVerbs}
+      />
     </S.LyricLabContainer>
   );
 };

@@ -5,9 +5,10 @@ import { FaQuestion } from "react-icons/fa";
 import { FaW, FaStripeS, FaHeading } from "react-icons/fa6";
 import { GoPlus } from "react-icons/go";
 
-const CircularMenu = ({ isVisible }) => {
+const CircularMenu = ({ onHighlightQuestions, onHighlightWhose, onHighlightStateVerbs }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [rotation, setRotation] = useState(0);
+  const [isBgChanged, setIsBgChanged] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -27,16 +28,21 @@ const CircularMenu = ({ isVisible }) => {
     };
   }, [isOpen]);
 
+  const handleButtonClick = (action) => {
+    setIsBgChanged(!isBgChanged);
+    action();
+  };
+
   const icons = [
-    { icon: BiMicrophone, label: "microphone" },
-    { icon: FaQuestion, label: "FaQuestion" },
-    { icon: FaW, label: "faw6" },
-    { icon: FaStripeS, label: "FaStripeS" },
-    { icon: FaHeading, label: "FaHeading"}
+    { icon: BiMicrophone, label: "microphone", action: () => {} },
+    { icon: FaQuestion, label: "FaQuestion", action: onHighlightQuestions },
+    { icon: FaW, label: "faw6", action: onHighlightWhose },
+    { icon: FaStripeS, label: "FaStripeS", action: onHighlightStateVerbs },
+    { icon: FaHeading, label: "FaHeading", action: onHighlightStateVerbs }
   ];
 
   return (
-    <S.Nav className={isOpen ? "open" : ""} isVisible={isVisible}>
+    <S.Nav className={isOpen ? "open" : ""} isBgChanged={isBgChanged}>
       <S.NavContent className="nav-content" rotation={rotation}>
         <S.ToggleButton
           className="toggle-btn"
@@ -49,8 +55,14 @@ const CircularMenu = ({ isVisible }) => {
             <GoPlus />
           )}
         </S.ToggleButton>
-        {icons.map(({ icon: IconComponent, label }, index) => (
-          <S.MenuSpan key={index} isOpen={isOpen} index={index} rotation={rotation}>
+        {icons.map(({ icon: IconComponent, label, action }, index) => (
+          <S.MenuSpan
+            key={index}
+            isOpen={isOpen}
+            index={index}
+            rotation={rotation}
+            onClick={() => handleButtonClick(action)}
+          >
             <S.StyledLink href="#">
               <S.Icon as={IconComponent} className={`icon-${label}`} />
             </S.StyledLink>

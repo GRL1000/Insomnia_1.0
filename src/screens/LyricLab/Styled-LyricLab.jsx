@@ -365,8 +365,8 @@ const slideUp = keyframes`
 `;
 
 export const Nav = styled.nav`
-  position: absolute;
-  top: 340px;
+  position: fixed;
+  top: 50%;
   right: 0;
   width: 80px;
   height: 300px;
@@ -375,6 +375,7 @@ export const Nav = styled.nav`
   justify-content: center;
   cursor: grab;
   animation: ${({ isVisible }) => (isVisible ? slideUp : 'none')} 0.6s ease;
+  z-index: 100;
 `;
 
 export const NavContent = styled.div`
@@ -382,6 +383,10 @@ export const NavContent = styled.div`
   align-items: center;
   justify-content: center;
   transform: rotate(-45deg);
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 101;
 `;
 
 export const ToggleButton = styled.div`

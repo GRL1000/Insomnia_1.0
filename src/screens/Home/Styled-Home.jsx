@@ -42,6 +42,7 @@ export const AlbumWrapper = styled.div`
 
   @media (max-width: 768px) {
     width: 65px;
+    height: 65px;
     margin-left: 3rem;
   }
 `;
@@ -360,7 +361,7 @@ export const SidebarMobileWrapper = styled.div`
   top: 0;
   left: 0;
   width: 190px;
-  height: 100vh;
+  height: 130vh;
   z-index: 1000;
   background-color: black;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
@@ -1061,7 +1062,6 @@ export const IconWrapperT = styled.div`
 export const IconPWrapper = styled.div`
   cursor: pointer;
   transition: transform 0.2s;
-  //border: 2px solid red;
   &:hover {
     transform: scale(1.1);
     color: #1db954;
