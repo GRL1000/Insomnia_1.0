@@ -430,7 +430,7 @@ export const TranscriptContainerS = styled.div`
     margin-right: -200px;
     margin-left: -450px;
     padding-left: 20px;
-    padding-right: 20px;
+    padding-right: 30px;
     padding-bottom: 175px;
     width: 120vw;
     max-height: 20px;
@@ -439,6 +439,42 @@ export const TranscriptContainerS = styled.div`
     border: 2px solid blue;
     background-color: blue;
     color: white;
+  }
+
+  @media (max-width: 768px) {
+  }
+
+  @media (max-width: 748px) {
+  }
+
+  @media (max-width: 600px) {
+  }
+
+  @media (max-width: 480px) {
+  }
+
+  @media (max-width: 430px) {
+  }
+
+  @media (max-width: 414px) {
+  }
+
+  @media (max-width: 412px) {
+  }
+
+  @media (max-width: 390px) {
+  }
+
+  @media (max-width: 375px) {
+  }
+
+  @media (max-width: 360px) {
+  }
+
+  @media (max-width: 344px) {
+  }
+
+  @media (max-width: 320px) {
   }
 
   /* Scroll customization */

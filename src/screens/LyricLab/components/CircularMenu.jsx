@@ -13,6 +13,7 @@ const CircularMenu = ({ onHighlightQuestions, onHighlightWhose, onHighlightState
   const [isListening, setIsListening] = useState(false);
   const [transcript, setTranscript] = useState("");
   const [isBgChanged, setIsBgChanged] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 767);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -65,6 +66,17 @@ const CircularMenu = ({ onHighlightQuestions, onHighlightWhose, onHighlightState
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 767);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const handleButtonClick = (action) => {
     setIsBgChanged(!isBgChanged);
     action();
@@ -75,43 +87,45 @@ const CircularMenu = ({ onHighlightQuestions, onHighlightWhose, onHighlightState
     { icon: FaQuestion, label: "FaQuestion", action: onHighlightQuestions },
     { icon: FaW, label: "faw6", action: onHighlightWhose },
     { icon: FaStripeS, label: "FaStripeS", action: onHighlightStateVerbs },
-    { icon: FaHeading, label: "FaHeading", action: onHighlightStateVerbs }  
-    ];
+    { icon: FaHeading, label: "FaHeading", action: onHighlightStateVerbs }
+  ];
 
   return (
-    <S.Nav className={isOpen ? "open" : ""} isBgChanged={isBgChanged}>
-      <S.NavContent className="nav-content" rotation={rotation}>
-        <S.ToggleButton
-          className="toggle-btn"
-          isOpen={isOpen}
-          onClick={toggleMenu}
-        >
-          {isOpen ? (
-            <GoPlus />
-          ) : (
-            <GoPlus />
-          )}
-        </S.ToggleButton>
-        {icons.map(({ icon: IconComponent, label, action }, index) => (
-          <S.MenuSpan
-            key={index}
+    isSmallScreen && (
+      <S.Nav className={isOpen ? "open" : ""} isBgChanged={isBgChanged}>
+        <S.NavContent className="nav-content" rotation={rotation}>
+          <S.ToggleButton
+            className="toggle-btn"
             isOpen={isOpen}
-            index={index}
-            rotation={rotation}
-            onClick={() => handleButtonClick(action)}
+            onClick={toggleMenu}
           >
-            <S.StyledLink href="#">
-              <S.Icon as={IconComponent} className={`icon-${label}`} />
-            </S.StyledLink>
-          </S.MenuSpan>
-        ))}
-      </S.NavContent>
-      {isListening && (
-        <S.TranscriptContainerS>
-          <S.TranscriptS>{transcript}</S.TranscriptS>
-        </S.TranscriptContainerS>
-      )}
-    </S.Nav>
+            {isOpen ? (
+              <GoPlus />
+            ) : (
+              <GoPlus />
+            )}
+          </S.ToggleButton>
+          {icons.map(({ icon: IconComponent, label, action }, index) => (
+            <S.MenuSpan
+              key={index}
+              isOpen={isOpen}
+              index={index}
+              rotation={rotation}
+              onClick={() => handleButtonClick(action)}
+            >
+              <S.StyledLink href="#">
+                <S.Icon as={IconComponent} className={`icon-${label}`} />
+              </S.StyledLink>
+            </S.MenuSpan>
+          ))}
+        </S.NavContent>
+        {isListening && (
+          <S.TranscriptContainerS>
+            <S.TranscriptS>{transcript}</S.TranscriptS>
+          </S.TranscriptContainerS>
+        )}
+      </S.Nav>
+    )
   );
 };
 
