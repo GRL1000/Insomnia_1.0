@@ -7,13 +7,20 @@ import { GoPlus } from "react-icons/go";
 
 const recognition = new window.webkitSpeechRecognition();
 
-const CircularMenu = ({ onHighlightQuestions, onHighlightWhose, onHighlightStateVerbs }) => {
+const CircularMenu = ({
+  onHighlightQuestions,
+  onHighlightWhose,
+  onHighlightStateVerbs,
+  onCloseLyricLab,
+  showMenu,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [rotation, setRotation] = useState(0);
   const [isListening, setIsListening] = useState(false);
   const [transcript, setTranscript] = useState("");
   const [isBgChanged, setIsBgChanged] = useState(false);
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 767);
+  const [showTranscript, setShowTranscript] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -29,6 +36,7 @@ const CircularMenu = ({ onHighlightQuestions, onHighlightWhose, onHighlightState
   const startListening = () => {
     recognition.start();
     setIsListening(true);
+    setShowTranscript(true);
   };
 
   const stopListening = () => {
@@ -47,7 +55,7 @@ const CircularMenu = ({ onHighlightQuestions, onHighlightWhose, onHighlightState
     recognition.onresult = (event) => {
       const currentTranscript =
         event.results[event.results.length - 1][0].transcript;
-      setTranscript(prevTranscript => prevTranscript + " " + currentTranscript);
+      setTranscript((prevTranscript) => prevTranscript + " " + currentTranscript);
     };
 
     recognition.onend = () => {
@@ -57,53 +65,44 @@ const CircularMenu = ({ onHighlightQuestions, onHighlightWhose, onHighlightState
     return () => {
       recognition.stop();
     };
-  }, []);
+  }, [isListening]);
 
   useEffect(() => {
-    window.addEventListener('wheel', handleScroll);
+    window.addEventListener("wheel", handleScroll);
     return () => {
-      window.removeEventListener('wheel', handleScroll);
+      window.removeEventListener("wheel", handleScroll);
     };
   }, [isOpen]);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth <= 767);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+    setIsVisible(showMenu);
+  }, [showMenu]);
 
   const handleButtonClick = (action) => {
     setIsBgChanged(!isBgChanged);
     action();
   };
 
+  useEffect(() => {
+    if (onCloseLyricLab) {
+      onCloseLyricLab(setShowTranscript);
+    }
+  }, [onCloseLyricLab]);
+
   const icons = [
-    { icon: BiMicrophone, label: "microphone", action: () => isListening ? stopListening() : startListening() },
+    { icon: BiMicrophone, label: "microphone", action: () => (isListening ? stopListening() : startListening()) },
     { icon: FaQuestion, label: "FaQuestion", action: onHighlightQuestions },
     { icon: FaW, label: "faw6", action: onHighlightWhose },
     { icon: FaStripeS, label: "FaStripeS", action: onHighlightStateVerbs },
-    { icon: FaHeading, label: "FaHeading", action: onHighlightStateVerbs }
+    { icon: FaHeading, label: "FaHeading", action: onHighlightStateVerbs },
   ];
 
   return (
-    isSmallScreen && (
-      <S.Nav className={isOpen ? "open" : ""} isBgChanged={isBgChanged}>
+    isVisible && (
+      <S.Nav isVisible={isVisible} className={isOpen ? "open" : ""}>
         <S.NavContent className="nav-content" rotation={rotation}>
-          <S.ToggleButton
-            className="toggle-btn"
-            isOpen={isOpen}
-            onClick={toggleMenu}
-          >
-            {isOpen ? (
-              <GoPlus />
-            ) : (
-              <GoPlus />
-            )}
+          <S.ToggleButton className="toggle-btn" isOpen={isOpen} onClick={toggleMenu}>
+            {isOpen ? <GoPlus /> : <GoPlus />}
           </S.ToggleButton>
           {icons.map(({ icon: IconComponent, label, action }, index) => (
             <S.MenuSpan
@@ -119,7 +118,7 @@ const CircularMenu = ({ onHighlightQuestions, onHighlightWhose, onHighlightState
             </S.MenuSpan>
           ))}
         </S.NavContent>
-        {isListening && (
+        {showTranscript && (
           <S.TranscriptContainerS>
             <S.TranscriptS>{transcript}</S.TranscriptS>
           </S.TranscriptContainerS>
