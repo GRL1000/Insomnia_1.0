@@ -359,7 +359,7 @@ const slideUp = keyframes`
 
 export const Nav = styled.nav`
   position: fixed;
-  top: 50%;
+  top: 40%;
   right: 0;
   width: 80px;
   height: 300px;
@@ -377,7 +377,6 @@ export const NavContent = styled.div`
   justify-content: center;
   transform: rotate(-45deg);
   position: fixed;
-  top: 55%;
   right: 20px;
   z-index: 101;
 `;
@@ -426,11 +425,11 @@ export const Icon = styled.i`
 
 export const TranscriptContainerS = styled.div`
   @media (max-width: 767px) {
-    margin-top: 30px;
+    margin-top: 190px;
     margin-right: -200px;
     margin-left: -450px;
     padding-left: 20px;
-    padding-right: 20px;
+    padding-right: 30px;
     padding-bottom: 175px;
     width: 120vw;
     max-height: 20px;
@@ -439,6 +438,42 @@ export const TranscriptContainerS = styled.div`
     border: 2px solid blue;
     background-color: blue;
     color: white;
+  }
+
+  @media (max-width: 768px) {
+  }
+
+  @media (max-width: 748px) {
+  }
+
+  @media (max-width: 600px) {
+  }
+
+  @media (max-width: 480px) {
+  }
+
+  @media (max-width: 430px) {
+  }
+
+  @media (max-width: 414px) {
+  }
+
+  @media (max-width: 412px) {
+  }
+
+  @media (max-width: 390px) {
+  }
+
+  @media (max-width: 375px) {
+  }
+
+  @media (max-width: 360px) {
+  }
+
+  @media (max-width: 344px) {
+  }
+
+  @media (max-width: 320px) {
   }
 
   /* Scroll customization */
@@ -491,4 +526,10 @@ export const TranscriptContainerS = styled.div`
 
 export const TranscriptS = styled.p`
   font-size: 18px;
+  @media (max-width: 768px) {
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 60px;
+    white-space: pre-wrap;
+  }
 `;

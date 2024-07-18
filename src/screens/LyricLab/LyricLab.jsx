@@ -71,20 +71,28 @@ const LyricLab = ({ lyrics = "", songName = "", artistName = "", backgroundColor
 
   const isSidebarExpandedOrLargeScreen = sidebarExpanded || window.innerWidth > 768;
 
+  const handleCloseLyricLab = (updateFunc) => {
+    updateFunc(false);
+  };
+
   return (
     <S.LyricLabContainer className={isSidebarExpandedOrLargeScreen ? "expanded" : ""} style={{ backgroundColor }} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <S.LyricText dangerouslySetInnerHTML={{ __html: highlightedLyrics || cleanedLyrics }} />
       {isSidebarExpandedOrLargeScreen && (
         <>
-      {isTopicListVisible && <TopicList highlightQuestions={highlightQuestions} highlightWhose={highlightWhose} highlightStateVerbs={highlightStateVerbs} activeOption={activeOption} />}
-      {isSpeechVisible && <Speech />}
+          {isTopicListVisible && <TopicList highlightQuestions={highlightQuestions} highlightWhose={highlightWhose} highlightStateVerbs={highlightStateVerbs} activeOption={activeOption} />}
+          {isSpeechVisible && <Speech />}
         </>
       )}
-      <CircularMenu
-        onHighlightQuestions={highlightQuestions}
-        onHighlightWhose={highlightWhose}
-        onHighlightStateVerbs={highlightStateVerbs}
-      />
+      {(isTopicListVisible || isSpeechVisible) && (
+        <CircularMenu
+          onHighlightQuestions={highlightQuestions}
+          onHighlightWhose={highlightWhose}
+          onHighlightStateVerbs={highlightStateVerbs}
+          onCloseLyricLab={handleCloseLyricLab}
+          showMenu={isTopicListVisible || isSpeechVisible}
+        />
+      )}
     </S.LyricLabContainer>
   );
 };
