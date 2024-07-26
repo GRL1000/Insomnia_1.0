@@ -23,7 +23,7 @@ export const setUser = (user) => {
     user,
   };
 
-  localStorage.setItem("user", JSON.stringify(user)); // Almacenar datos del usuario
+  localStorage.setItem("user", JSON.stringify(user));
 };
 
 export const getUser = () => {

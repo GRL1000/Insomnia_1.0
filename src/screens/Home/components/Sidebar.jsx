@@ -3,6 +3,8 @@ import * as S from "../Styled-Home";
 import Home from "../../../assets/icons/home.png";
 import Playlists from "../../../assets/icons/playlist.png";
 import Credits from "../../../assets/icons/credits.png";
+import Logout from "../../../assets/icons/logout.png";
+import { logout } from "../../../utils/InMemoryToken";
 
 function Sidebar({ expanded, onToggle, user, onHomeClick, playlists, onShowCredits }) {
   const [showPlaylists, setShowPlaylists] = useState(false);
@@ -16,6 +18,10 @@ function Sidebar({ expanded, onToggle, user, onHomeClick, playlists, onShowCredi
   };
 
   const togglePlaylists = () => setShowPlaylists(!showPlaylists);
+
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <S.SidebarWrapper
@@ -52,6 +58,10 @@ function Sidebar({ expanded, onToggle, user, onHomeClick, playlists, onShowCredi
         <S.MenuItem onClick={onShowCredits}>
           <S.Icon src={Credits} alt="Credits" />
           {expanded && <span>Créditos</span>}
+        </S.MenuItem>
+        <S.MenuItem onClick={handleLogout}>
+          <S.Icon src={Logout} alt="Logout" />
+          {expanded && <span>Cerrar sesión</span>}
         </S.MenuItem>
       </S.ItemsContainer>
     </S.SidebarWrapper>

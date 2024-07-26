@@ -66,7 +66,7 @@ export const ItLogo = styled.button`
   cursor: pointer;
 
   @media (max-width: 768px) {
-    left: 50%;
+    left: 57%;
     transform: translateX(-50%);
   }
 `;
@@ -198,6 +198,10 @@ export const SubTitleAnimation = styled.div`
       transform: translateX(10px);
     }
   }
+
+  @media (max-width: 768px) {
+    margin-left: 40px;
+  }
 `;
 
 export const MessageAnimation = styled.div`
@@ -229,6 +233,7 @@ export const MessageAnimation = styled.div`
 
   @media (max-width: 768px) {
     font-size: 50px;
+    margin-left: 50px;
   }
 
   @media (max-width: 576px) {
@@ -356,4 +361,8 @@ export const ShowButtonS = styled.div`
   margin-top: 30px;
   opacity: 0;
   animation: ${slideInFromBottom} 1s forwards;
+
+  @media(max-width: 768px) {
+    margin-left: 50px;
+  }
 `;
