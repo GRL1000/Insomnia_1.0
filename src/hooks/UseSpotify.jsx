@@ -37,7 +37,7 @@ const UseSpotify = ({ token, onPlayerReady, onPlayerChanged }) => {
       spotifySDK.addListener("player_state_changed", onPlayerChanged);
 
       spotifySDK.connect();
-    }; // eslint-disable-next-line
+    };
   }, [token]);
 };
 

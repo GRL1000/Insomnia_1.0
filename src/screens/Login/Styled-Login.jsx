@@ -66,7 +66,7 @@ export const ItLogo = styled.button`
   cursor: pointer;
 
   @media (max-width: 768px) {
-    left: 55%;
+    left: 57%;
     transform: translateX(-50%);
   }
 `;

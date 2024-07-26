@@ -4,11 +4,17 @@ import * as S from '../Styled-Home';
 import Home from "../../../assets/icons/home.png";
 import Playlists from "../../../assets/icons/playlist.png";
 import Credits from "../../../assets/icons/credits.png";
+import Logout from "../../../assets/icons/logout.png";
+import { logout } from "../../../utils/InMemoryToken";
 
 const SidebarMobile = ({ onClose, onHomeClick, playlists, onShowCredits }) => {
   const [showPlaylists, setShowPlaylists] = useState(false);
 
   const togglePlaylists = () => setShowPlaylists(!showPlaylists);
+
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <S.SidebarMobileWrapper>
@@ -32,6 +38,10 @@ const SidebarMobile = ({ onClose, onHomeClick, playlists, onShowCredits }) => {
       <S.MobileMenuItem onClick={() => { onShowCredits(); onClose(); }}>
         <S.IconMB src={Credits} alt="Credits" />
         <S.Span>Créditos</S.Span>
+      </S.MobileMenuItem>
+      <S.MobileMenuItem onClick={() => { handleLogout(); onClose(); }}>
+        <S.IconMB src={Logout} alt="Logout" />
+        <S.Span>Cerrar sesión</S.Span>
       </S.MobileMenuItem>
     </S.SidebarMobileWrapper>
   );
