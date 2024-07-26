@@ -1,4 +1,4 @@
-import styled, {keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Button from "../../inputs/Button";
 
 export const Card = styled.div`
@@ -18,10 +18,10 @@ export const Card = styled.div`
 
   transition: width 0.3s ease;
 
-    @media (max-width: 768px) {
-      height: 8rem;
-      width: 120vw;
-    }
+  @media (max-width: 768px) {
+    height: 8rem;
+    width: 120vw;
+  }
 `;
 
 export const TextInfo = styled.div`
@@ -40,9 +40,94 @@ export const AlbumWrapper = styled.div`
   position: relative;
   transition: height 0.15s ease-in-out;
 
+  @media (max-width: 1024px) {
+    width: 65px;
+    height: 65px;
+    margin-right: 1rem;
+    margin-left: 3rem;
+  }
+
   @media (max-width: 768px) {
     width: 65px;
     height: 65px;
+    margin-right: 1rem;
+    margin-left: 3rem;
+  }
+
+  @media (max-width: 748px) {
+    width: 65px;
+    height: 65px;
+    margin-right: 1rem;
+    margin-left: 3rem;
+  }
+
+  @media (max-width: 600px) {
+    width: 65px;
+    height: 65px;
+    margin-right: 1rem;
+    margin-left: 3rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 65px;
+    height: 65px;
+    margin-right: 1rem;
+    margin-left: 3rem;
+  }
+
+  @media (max-width: 430px) {
+    width: 65px;
+    height: 65px;
+    margin-right: 1rem;
+    margin-left: 3rem;
+  }
+
+  @media (max-width: 414px) {
+    width: 65px;
+    height: 65px;
+    margin-right: 1rem;
+    margin-left: 3rem;
+  }
+
+  @media (max-width: 412px) {
+    width: 65px;
+    height: 65px;
+    margin-right: 1rem;
+    margin-left: 3rem;
+  }
+
+  @media (max-width: 390px) {
+    width: 65px;
+    height: 65px;
+    margin-right: 1rem;
+    margin-left: 3rem;
+  }
+
+  @media (max-width: 375px) {
+    width: 65px;
+    height: 65px;
+    margin-right: 1rem;
+    margin-left: 3rem;
+  }
+
+  @media (max-width: 360px) {
+    width: 65px;
+    height: 65px;
+
+    margin-left: 3rem;
+  }
+
+  @media (max-width: 344px) {
+    width: 65px;
+    height: 65px;
+    margin-right: 1rem;
+    margin-left: 3rem;
+  }
+
+  @media (max-width: 320px) {
+    width: 65px;
+    height: 65px;
+    margin-right: 1rem;
     margin-left: 3rem;
   }
 `;
@@ -224,9 +309,9 @@ export const TimeWrapper = styled.div`
   width: 625px;
   font-size: 15px;
 
-      @media (max-width: 768px) {
-        display: none;
-      }
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Progress = styled.input.attrs({ type: "range" })`
@@ -413,7 +498,6 @@ export const Span = styled.span`
   vertical-align: middle;
 `;
 
-
 export const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -454,7 +538,6 @@ export const MenuItem = styled.div`
   margin: 10px 0;
   border-radius: 10px;
   transition: background-color 0.3s, border 0.1s, transform 0.3s, color 0.3s;
-
 
   &:hover {
     background-color: transparent;
@@ -510,7 +593,7 @@ export const PlaylistContainer = styled.div`
 export const PlaylistContainerM = styled.div`
   padding-left: 20px;
   padding-right: 150px;
-  
+
   margin-top: 100px;
   margin-left: 200px;
   height: 200px;
@@ -539,7 +622,6 @@ export const PlaylistContainerM = styled.div`
     scrollbar-width: thin;
   }
 `;
-
 
 export const PlaylistItem = styled.div`
   padding: 5px 0;
@@ -585,7 +667,6 @@ export const SuggestionsWrapper = styled.div`
       width: 100vw;
     }
   }
-
 `;
 
 export const SearchBar = styled.div`
@@ -958,10 +1039,10 @@ export const NewMusicContainer = styled.div`
   margin-left: 20px;
   margin-right: 10px;
 
-    @media (max-width: 768px) {
-      margin-left: 56px;
-      margin-right: 18px;
-    }
+  @media (max-width: 768px) {
+    margin-left: 56px;
+    margin-right: 18px;
+  }
 `;
 
 export const NewMusicTitle = styled.h3`
