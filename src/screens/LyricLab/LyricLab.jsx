@@ -90,7 +90,7 @@ const LyricLab = ({ lyrics = "", songName = "", artistName = "", backgroundColor
           onHighlightWhose={highlightWhose}
           onHighlightStateVerbs={highlightStateVerbs}
           onCloseLyricLab={handleCloseLyricLab}
-          showMenu={isTopicListVisible || isSpeechVisible}
+          showMenu={true}
         />
       )}
     </S.LyricLabContainer>

@@ -21,6 +21,7 @@ const CircularMenu = ({
   const [isBgChanged, setIsBgChanged] = useState(false);
   const [showTranscript, setShowTranscript] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -75,8 +76,8 @@ const CircularMenu = ({
   }, [isOpen]);
 
   useEffect(() => {
-    setIsVisible(showMenu);
-  }, [showMenu]);
+    setIsVisible(showMenu && isSmallScreen);
+  }, [showMenu, isSmallScreen]);
 
   const handleButtonClick = (action) => {
     setIsBgChanged(!isBgChanged);
@@ -88,6 +89,17 @@ const CircularMenu = ({
       onCloseLyricLab(setShowTranscript);
     }
   }, [onCloseLyricLab]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 768);
+    };
+    
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const icons = [
     { icon: BiMicrophone, label: "microphone", action: () => (isListening ? stopListening() : startListening()) },
