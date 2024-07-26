@@ -58,12 +58,6 @@ export function Home() {
     }
   };
 
-  const handleMouseLeave = () => {
-    if (isLyricLabVisible) {
-      setIsSidebarVisible(false);
-    }
-  };
-
   const handleShowCredits = () => {
     setShowCredits(true);
     setIsSidebarVisible(false);
@@ -75,7 +69,7 @@ export function Home() {
   };
 
   return (
-    <div className="container" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className="container" onMouseEnter={handleMouseEnter}>
       <S.SidebarToggle onClick={handleToggleSidebarMobile}>
         <FiMenu size={24} />
       </S.SidebarToggle>
