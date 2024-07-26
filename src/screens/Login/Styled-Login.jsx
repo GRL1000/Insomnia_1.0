@@ -1,4 +1,4 @@
-import styled, {keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const div = styled.div`
   background: radial-gradient(
@@ -66,7 +66,7 @@ export const ItLogo = styled.button`
   cursor: pointer;
 
   @media (max-width: 768px) {
-    left: 57%;
+    left: 53.5%;
     transform: translateX(-50%);
   }
 `;
@@ -200,7 +200,7 @@ export const SubTitleAnimation = styled.div`
   }
 
   @media (max-width: 768px) {
-    margin-left: 40px;
+    margin-left: 20px;
   }
 `;
 
@@ -233,7 +233,7 @@ export const MessageAnimation = styled.div`
 
   @media (max-width: 768px) {
     font-size: 50px;
-    margin-left: 50px;
+    margin-left: 20px;
   }
 
   @media (max-width: 576px) {
@@ -261,13 +261,13 @@ export const VideoContainer = styled.div`
 `;
 
 export const VideoOverlay = styled.div`
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(0, 0, 0, 0.2);
-z-index: -2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: -2;
 `;
 
 export const BgVideo = styled.video`
@@ -279,7 +279,6 @@ export const BgVideo = styled.video`
   left: 0;
   z-index: -1;
 `;
-
 
 export const ButtonsContainer = styled.div`
   display: flex;
@@ -305,7 +304,6 @@ export const GoogleButton = styled.div`
     background-color: #f0f0f0;
     border-color: #ccc;
   }
-
 `;
 
 export const GoogleIcon = styled.img`
@@ -325,7 +323,7 @@ export const SpotifyButton = styled.div`
   transition: all 0.3s ease;
   cursor: pointer;
 
-    &:hover {
+  &:hover {
     background-color: #f0f0f0;
     border-color: #ccc;
   }
@@ -362,7 +360,201 @@ export const ShowButtonS = styled.div`
   opacity: 0;
   animation: ${slideInFromBottom} 1s forwards;
 
-  @media(max-width: 768px) {
-    margin-left: 50px;
+  @media (max-width: 768px) {
+    margin-left: 30px;
+  }
+`;
+
+const fadeIn = keyframes`
+  to {
+    opacity: 1;
+  }
+`;
+
+const smoky = keyframes`
+  60% {
+    text-shadow: 0 0 40px whitesmoke;
+  }
+  to {
+    transform:
+      translate3d(15rem, -8rem, 0)
+      rotate(-40deg)
+      skewX(70deg)
+      scale(1.5);
+    text-shadow: 0 0 20px whitesmoke;
+    opacity: 0;
+  }
+`;
+
+const smokyMirror = keyframes`
+  60% {
+    text-shadow: 0 0 40px whitesmoke;
+  }
+  to {
+    transform:
+      translate3d(18rem, -8rem, 0)
+      rotate(-40deg)
+      skewX(-70deg)
+      scale(2);
+    text-shadow: 0 0 20px whitesmoke;
+    opacity: 0;
+  }
+`;
+
+export const LoadingContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+  z-index: 9999;
+`;
+
+export const LoadingSpinner = styled.div`
+  border: 10px solid #f3f3f3a4;
+  border-radius: 50%;
+  margin-top: -250px;
+  z-index: 1000;
+  border-top: 10px solid #ffffff;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  @media (max-width: 748px) {
+    display: none;
+  }
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+
+  @media (max-width: 430px) {
+    display: none;
+  }
+
+  @media (max-width: 414px) {
+    display: none;
+  }
+
+  @media (max-width: 412px) {
+    display: none;
+  }
+
+  @media (max-width: 390px) {
+    display: none;
+  }
+
+  @media (max-width: 375px) {
+    display: none;
+  }
+
+  @media (max-width: 360px) {
+    display: none;
+  }
+
+  @media (max-width: 344px) {
+    display: none;
+  }
+
+  @media (max-width: 320px) {
+    display: none;
+  }
+`;
+
+export const LoadingText = styled.div`
+  margin-top: -450px;
+  opacity: 0;
+  font: 5vw/100vh Arial, sans-serif;
+  text-align: center;
+  color: transparent;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: ${fadeIn} 3s forwards;
+  z-index: 100;
+
+  span {
+    display: inline-block;
+    text-shadow: 0 0 0 whitesmoke;
+    animation: ${smoky} 5s 3s both;
+
+    &:nth-child(even) {
+      animation-name: ${smokyMirror};
+    }
+  }
+
+  @for $item from 1 through 11 {
+    span:nth-of-type(#{$item}) {
+      animation-delay: #{(3 + ($item / 10))}s;
+    }
+  }
+
+  @media (max-width: 1024px) {
+  }
+
+  @media (max-width: 768px) {
+  }
+
+  @media (max-width: 748px) {
+  }
+
+  @media (max-width: 600px) {
+  }
+
+  @media (max-width: 480px) {
+  }
+
+  @media (max-width: 430px) {
+  }
+
+  @media (max-width: 414px) {
+  }
+
+  @media (max-width: 412px) {
+  }
+
+  @media (max-width: 390px) {
+  }
+
+  @media (max-width: 375px) {
+  }
+
+  @media (max-width: 360px) {
+    font-size: 40px;
+    margin-right: 50px;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 344px) {
+  }
+
+  @media (max-width: 320px) {
   }
 `;
