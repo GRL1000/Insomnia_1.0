@@ -61,7 +61,7 @@ function Sidebar({ expanded, onToggle, user, onHomeClick, playlists, onShowCredi
         </S.MenuItem>
         <S.MenuItem onClick={handleLogout}>
           <S.Icon src={Logout} alt="Logout" />
-          {expanded && <span>Cerrar sesión</span>}
+          {expanded && <S.Span>Cerrar sesión</S.Span>}
         </S.MenuItem>
       </S.ItemsContainer>
     </S.SidebarWrapper>

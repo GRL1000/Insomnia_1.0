@@ -490,7 +490,7 @@ export const LoadingSpinner = styled.div`
 export const LoadingText = styled.div`
   margin-top: -450px;
   opacity: 0;
-  font: 5vw/100vh Arial, sans-serif;
+  font: 5vw/100vh CaptureIt, Arial, sans-serif;
   text-align: center;
   color: transparent;
   backface-visibility: hidden;
