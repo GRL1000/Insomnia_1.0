@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import * as S from "./Styled-Credits";
-import BgVideo from "../../assets/video/credits.mp4";
+
 import Back from "../../assets/icons/back.png";
 import NameOverlay from "./components/NameOverlay";
 
