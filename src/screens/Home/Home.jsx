@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import * as S from './Styled-Home';
 import { FiMenu } from 'react-icons/fi';
 import ForYou from './components/ForYou';

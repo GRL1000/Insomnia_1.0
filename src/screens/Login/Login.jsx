@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { login, getNewToken, GetToken } from "../../utils/InMemoryToken";
 import * as S from "./Styled-Login";
@@ -90,7 +90,7 @@ const Login = () => {
 
   return (
     <>
-      {isLoading && <Loading message="For Imma Em" />}
+      {isLoading && <Loading message="By G" />}
       <S.Header>
         <S.TitleAnimation>
           <S.Name>INSOMNIA v1.0</S.Name>
